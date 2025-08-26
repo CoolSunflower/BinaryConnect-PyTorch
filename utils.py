@@ -84,7 +84,7 @@ class BinaryConnectOptimizer:
                 param_group['lr'] = lr
 
 def train_epoch(X, y, LR, model, criterion, optimizer, device):
-    """Train one epoch exactly as original"""
+    """Train one epoch"""
     model.train()
     loss = 0
     batches = len(X) // batch_size
@@ -108,7 +108,7 @@ def train_epoch(X, y, LR, model, criterion, optimizer, device):
     return loss
 
 def val_epoch(X, y, model, criterion, device):
-    """Validate one epoch exactly as original"""
+    """Validate one epoch"""
     model.eval()
     err = 0
     loss = 0
@@ -160,7 +160,7 @@ class CIFAR10BinaryConnectOptimizer:
         print(f"Binary parameters: {len(self.binary_params)}")
         print(f"Other parameters: {len(self.other_params)}")
         
-        # Create separate Adam optimizers exactly as in working MNIST
+        # Create separate Adam optimizers
         self.binary_optimizer = torch.optim.Adam(self.binary_params, lr=lr)
         self.other_optimizer = torch.optim.Adam(self.other_params, lr=lr) if self.other_params else None
         
@@ -184,7 +184,7 @@ class CIFAR10BinaryConnectOptimizer:
         # Step 3: Update binary parameters
         self.binary_optimizer.step()
         
-        # Step 4: Apply W_LR_scale and clipping exactly like MNIST
+        # Step 4: Apply W_LR_scale and clipping
         for module in self.model.modules():
             if isinstance(module, BinaryDenseLayer) and module.binary:
                 old_param = old_params[id(module.W)]
@@ -213,7 +213,7 @@ class CIFAR10BinaryConnectOptimizer:
                 param_group['lr'] = lr
 
 def train_cifar10_epoch(X, y, LR, model, criterion, optimizer, batch_size, device):
-    """Train one epoch for CIFAR-10 using the EXACT same approach as working MNIST"""
+    """Train one epoch for CIFAR-10"""
     model.train()
     loss = 0
     batches = len(X) // batch_size
@@ -228,7 +228,6 @@ def train_cifar10_epoch(X, y, LR, model, criterion, optimizer, batch_size, devic
         output = model(batch_X)
         batch_loss = criterion(output, batch_y)
         
-        # CRITICAL: Use the same optimizer.step approach that works for MNIST
         optimizer.step(batch_loss)
         
         loss += batch_loss.item()

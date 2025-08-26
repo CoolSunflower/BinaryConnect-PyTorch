@@ -1,0 +1,46 @@
+MNIST Standard
+Parsed 250 epochs for MNIST_STANDARD
+Saved: mnist_standard_time_vs_epoch.png
+Saved: mnist_standard_error_rate_vs_epoch.png
+Saved: mnist_standard_loss_vs_epoch.png
+
+MNIST_STANDARD Summary:
+Total epochs: 249
+Average time per epoch: 4.93s
+Total Training Time: 1232.749s
+Final training loss: 0.000001
+Final validation loss: 0.012232
+Final validation error rate: 1.1800%
+Best validation error rate: 1.1800%
+
+
+MNIST:
+Parsed 250 epochs for MNIST
+Saved: mnist_time_vs_epoch.png
+Saved: mnist_error_rate_vs_epoch.png
+Saved: mnist_loss_vs_epoch.png
+
+MNIST Summary:
+Total epochs: 249
+Average time per epoch: 9.58s
+Total Training Time: 2396.065s
+Final training loss: 0.000058
+Final validation loss: 0.012237
+Final validation error rate: 1.2400%
+Best validation error rate: 1.2400%
+
+
+CIFAR10:
+Parsed 500 epochs for CIFAR10
+Saved: cifar10_time_vs_epoch.png
+Saved: cifar10_error_rate_vs_epoch.png
+Saved: cifar10_loss_vs_epoch.png
+
+CIFAR10 Summary:
+Total epochs: 499
+Average time per epoch: 71.22s
+Total Training Time: 35612.364s
+Final training loss: 0.000223
+Final validation loss: 0.070946
+Final validation error rate: 8.8400%
+Best validation error rate: 8.8400%

@@ -24,8 +24,6 @@ dropout_hidden = 0.
 binary = True
 stochastic = True
 # (-H,+H) are the two binary values
-# H = "Glorot"
 H = 1.
 # W_LR_scale = 1.    
-W_LR_scale = "Glorot" # "Glorot" means we are using the coefficients from Glorot's paper
-
+W_LR_scale = "Glorot"

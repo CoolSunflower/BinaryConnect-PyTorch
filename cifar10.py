@@ -268,3 +268,14 @@ def train_cifar10(device):
     print(f"\nFinal CIFAR-10 Results:")
     print(f"Best validation error: {best_val_err:.2f}% (epoch {best_epoch})")
     print(f"Test error: {test_err:.2f}%")
+
+if __name__ == "__main__":
+    # Set random seeds for reproducibility
+    torch.manual_seed(1234)
+    np.random.seed(1234)
+
+    # Check if CUDA is available
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print(f"Using device: {device}")
+
+    train_cifar10(device)

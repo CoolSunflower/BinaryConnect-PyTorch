@@ -191,3 +191,14 @@ def load_mnist_data(batch_size=100):
     test_y = to_onehot_hinge(test_y)
     
     return (train_X, train_y), (val_X, val_y), (test_X, test_y)
+
+if __name__ == "__main__":
+    # Set random seeds for reproducibility
+    torch.manual_seed(1234)
+    np.random.seed(1234)
+
+    # Check if CUDA is available
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print(f"Using device: {device}")
+
+    train_mnist(device)

@@ -184,3 +184,14 @@ def train_mnist_standard(device):
         'best_epoch': best_epoch,
         'model': model
     }
+
+if __name__ == "__main__":
+    # Set random seeds for reproducibility
+    torch.manual_seed(1234)
+    np.random.seed(1234)
+
+    # Check if CUDA is available
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print(f"Using device: {device}")
+
+    train_mnist_standard(device)

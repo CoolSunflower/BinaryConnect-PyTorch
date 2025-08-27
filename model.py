@@ -7,7 +7,6 @@ def hard_sigmoid(x):
     return torch.clamp((x+1.)/2.,0,1)
 
 def binarization(W, H, binary=True, deterministic=False, stochastic=False, srng=None):    
-    # (deterministic == True) <-> test-time <-> inference-time
     if not binary or (deterministic and stochastic):
         Wb = W    
     else:
